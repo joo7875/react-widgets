@@ -54,15 +54,15 @@ const Search = () => {
         search();
     } else {
         const timeoutId = setTimeout(() => {
-            if (term) {
-              search();
-            }
-          }, 1000);
-      
-          // first rendered then entire inside the function renders
-          return () => {
-              clearTimeout(timeoutId);
+          if (term) {
+            search();
           }
+        }, 1000);
+    
+        // first rendered then entire inside the function renders
+        return () => {
+            clearTimeout(timeoutId);
+        }
     }
   }, [term, results.length]);
 
